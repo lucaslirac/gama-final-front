@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import ProductCard from "../../components/Productcard";
+import ProductList from "../../components/produtos/ProductList";
 
 
 function Products(){
@@ -10,9 +11,9 @@ function Products(){
             <header>
                 <Header />
             </header>
-
+            <h1>Produtos</h1>
             <div>
-               <ProductCard />
+               <ProductList />
             </div>
             <footer>
                 <Footer />
