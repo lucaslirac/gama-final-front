@@ -30,7 +30,9 @@ console.log(productList)
     <div>
       {productList.map(product => (
         <>
-        <h1>{product.name}</h1>
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <p>{product.price}</p>
         </>
       ))}
     </div>
