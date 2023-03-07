@@ -27,6 +27,7 @@ useEffect(() => {
 
 
 
+
   return (
     <div> 
       {productList.map(product => (
