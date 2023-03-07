@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-
+import ProductCard from "../../components/Productcard";
 
 
 function Products(){
@@ -12,7 +12,7 @@ function Products(){
             </header>
 
             <div>
-                <h1>Produtos</h1>
+               <ProductCard />
             </div>
             <footer>
                 <Footer />

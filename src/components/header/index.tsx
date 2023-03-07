@@ -36,16 +36,6 @@ function Header() {
           >
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/Products">Produto</Nav.Link>
-            <NavDropdown title="Produtos" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Geek</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Livros
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
             <Nav.Link href="/About" >
               Sobre nos
             </Nav.Link>

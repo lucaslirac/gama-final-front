@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import Carrosel from "../../components/carrosel";
+import ProductList from "../../components/produtos/ProductList";
 
 
 
@@ -19,6 +20,7 @@ function Home() {
                 <div>
                     <Carrosel />
                 </div>
+                <ProductList />
             </div>
             <footer>
                 <Footer />
