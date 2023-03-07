@@ -4,16 +4,23 @@ import Card from 'react-bootstrap/Card';
 
 import ProductList from '../produtos/ProductList';
 
-function ProductCard() {
+type ProductProps = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+}
+
+function ProductCard(props:ProductProps) {
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
         <Card.Title>
-            
+          {props.name}
         </Card.Title>
         <Card.Text>
-          <ProductList />
+            {props.description}
         </Card.Text>
         <Button variant="primary">Comprar</Button>
       </Card.Body>
