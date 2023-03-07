@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ProductItem from './ProductItem';
 import { getproductList } from '../../service/api';
+import ProductCard from '../Productcard';
 
 // interface Product {
 //   id: number;
@@ -24,15 +25,13 @@ useEffect(() => {
   fetchProductList()
 }, [])
 
-console.log(productList)
+
 
   return (
-    <div>
+    <div> 
       {productList.map(product => (
         <>
-        <h3>{product.name}</h3>
-        <p>{product.description}</p>
-        <p>{product.price}</p>
+          <ProductCard {...product} />
         </>
       ))}
     </div>
