@@ -5,6 +5,7 @@ import About from '../pages/about'
 import Register from '../pages/register'
 import Login from '../pages/login'
 import Products from '../pages/products'
+import Carrinho from '../pages/cart'
 
 
 
@@ -17,6 +18,8 @@ export default function Routes() {
             <Route path="/Register" element={<Register />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Products" element={<Products/>} />
+            <Route path="/Cart" element={<Carrinho/>} />
+
             </WrapperRoutes>
         </BrowserRouter>
     )

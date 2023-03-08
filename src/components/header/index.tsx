@@ -42,7 +42,7 @@ function Header() {
           </Nav>
         </Navbar.Collapse>
         <Button href='/Register' variant="primary me-3" id='register'>Registrar</Button>
-        <Nav.Link href="#" className='cart me-3'><ShoppingCart size="25" color="#000000" /></Nav.Link>
+        <Nav.Link href="/Cart" className='cart me-3'><ShoppingCart size="25" color="#000000" /></Nav.Link>
         <Nav.Link href="#" className='perfil me-3'><User size="25" color="#000000" onClick={handleShow} /></Nav.Link>
         
         <Modal show={show} onHide={handleClose}>
@@ -54,7 +54,7 @@ function Header() {
             <Button variant="secondary" onClick={handleClose}>
               Fechar
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={handleClose} id="logar">
               Entrar
             </Button>
           </Modal.Footer>
