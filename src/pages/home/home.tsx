@@ -21,16 +21,6 @@ function Home() {
                 <div>
                     <Carrosel />
                 </div>
-            
-      <ProductsCarousel>
-        <>
-          {productList.map((item, index) => (
-            <div key={index + 1} className="keen-slider__slide">
-              <ProductList product_name={""} photo={""} category_id={0} {...item} />
-            </div>
-          ))}
-        </>
-      </ProductsCarousel>
             </div>
             <footer>
                 <Footer />
