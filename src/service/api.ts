@@ -1,7 +1,8 @@
 import axios, { Axios } from "axios";
 import { Await } from "react-router-dom";
 import { User } from "../types/index"
-export const Api = axios.create({
+import { IUser } from "../types/index";
+export const Api = axios.create({ 
     baseURL: "https://desafio-final-gama-46-back-production.up.railway.app",
 
 });
@@ -18,11 +19,11 @@ export const getproductList = async () => {
 
 export const createUser = async (user: User) => {
     try {
-        const token = await getToken();
-        user.role = "client"
+        //const token = await getToken();
+        console.log(user)
         const { data, status, ...props } = await Api.post('/user', user, {
             headers: {
-                Authorization: token    
+               // Authorization: token    
 
 
             }
@@ -53,10 +54,33 @@ export const getToken = async () => {
 export const signIn = async ({email, password}: {email:string; password:string}) => {
     try {
        
-        const { data } = await Api.post('/auth/login', {email, password});
+        const  data  = await Api.post('/auth/login', {email, password});
+        const payload = {token:data}
+        setUserLocalStorage(payload)
+        console.log({data})
+        return data.data ?? "";
+    } catch (error: any) {
 
-        return data?.token ?? "";
-    } catch (error) {
-
+        console.error(error);
+        return { status: error.response.status };
     }
+}
+
+
+
+export function setUserLocalStorage(user: IUser | null) {
+    localStorage.setItem("u", JSON.stringify(user));
+}
+
+
+export function getUserLocalStorage() {
+    const json = localStorage.getItem("u")
+
+    if (!json) {
+        return null;
+    }
+
+    const user = JSON.parse(json)
+
+    return user ?? null;
 }
