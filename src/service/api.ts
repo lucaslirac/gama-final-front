@@ -27,9 +27,6 @@ export const createUser = async (user: User) => {
 
             }
         });
-        console.log("data", data)
-        console.log("status", status)
-        console.log("token", props)
         alert('Usuário cadastrado com sucesso!');
         return { data, status };
     } catch (error: any) {

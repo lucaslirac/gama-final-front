@@ -4,7 +4,9 @@ import Footer from "../../components/footer";
 import ProductCard from "../../components/Productcard";
 import ProductList from "../../components/produtos/ProductList";
 import Carrosel from "../../components/carrosel";
+import { TextalignCenter } from "iconsax-react";
 
+import './style.css'
 
 function Products(){
     return(
@@ -13,9 +15,12 @@ function Products(){
                 <Header />
             </header>
             
-            <h1>Produtos</h1>
+            
             <div>
                 <Carrosel />
+                <div>
+                <h1 className="h1">Produtos</h1>
+                </div>
                <ProductList />
             </div>
             <footer>

@@ -5,3 +5,13 @@ export type User = {
     role: string
 }
 
+
+export interface IUser {
+    username?: string;
+    email?: string;
+    token?: string;
+}
+
+export interface IAuthProvider {
+    children: JSX.Element | JSX.Element[];
+}
