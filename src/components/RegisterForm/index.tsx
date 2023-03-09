@@ -14,7 +14,7 @@ function RegisterForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("client");
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -35,6 +35,7 @@ function RegisterForm() {
   const registerUser = async () => {
     const response = await createUser({ name, email, password, role });
    //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
+   console.log(name, email, password, role)
   };
 
   return (
