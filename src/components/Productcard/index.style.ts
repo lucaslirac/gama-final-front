@@ -4,7 +4,8 @@ export const Container = styled.div`
 .card{
         
        
-        margin: 10px;
+        margin: 3px;
+        width: 350px;
         margin-bottom: 40px;
         border: 1px solid #ccc;
         & img{
@@ -27,8 +28,8 @@ export const Container = styled.div`
     .container{
         
         display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
-        background-color: #f1f1f1;
+        grid-template-columns: 45% 45% 45% 45%;
+        
         border: none;
         margin: 100px auto; 
     }
