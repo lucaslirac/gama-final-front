@@ -15,9 +15,6 @@ import { signIn } from '../../service/api';
 
 
 
-function LeginrForm() {
-   
-}
 
 function Login() {
 
