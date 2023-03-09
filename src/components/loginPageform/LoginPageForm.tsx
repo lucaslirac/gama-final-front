@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     MDBBtn,
     MDBContainer,
@@ -11,42 +11,87 @@ import {
     MDBCheckbox
 }
     from 'mdb-react-ui-kit';
+import { signIn } from '../../service/api';
+
+
+
+function LeginrForm() {
+   
+}
 
 function Login() {
+
+    
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+  
+ 
+  
+    const HandleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail(event.target.value);
+    };
+  
+    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setPassword(event.target.value);
+    };
+  
+  
+    const loginUser = async () => {
+      const response = await signIn({  email, password });
+     //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
+    };
+
     return (
-        <MDBContainer fluid>
-
-            <MDBRow className='d-flex justify-content-center align-items-center h-100'>
-                <MDBCol col='12'>
-
-                    <MDBCard className='bg-white my-5 mx-auto' style={{ borderRadius: '1rem', maxWidth: '500px' }}>
-                        <MDBCardBody className='p-5 w-100 d-flex flex-column'>
-
-                            <h2 className="fw-bold mb-4 text-center" id='login'>Login</h2>
-
-
-                            <MDBInput wrapperClass='mb-4 w-100' label='Email' id='email' type='email' size="lg" />
-                            <MDBInput wrapperClass='mb-4 w-100' label='Senha' id='senha' type='password' size="lg" />
-
-                            <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label='Lembrar senha' />
-                            <div>
-                                <p>Nao tem conta? <a href="/Register" id='register'>cadastrar</a></p>
-                            </div>
-                            <MDBBtn size='lg'>
-                                Login
-                            </MDBBtn>
-
-
-
-
-                        </MDBCardBody>
-                    </MDBCard>
-
-                </MDBCol>
-            </MDBRow>
-
-        </MDBContainer>
-    );
-}
+        <MDBContainer
+        fluid
+        className="d-flex align-items-center justify-content-center bg-image mt-5"
+      >
+        <div className="mask gradient-custom-3"></div>
+        <MDBCard className="m-5" style={{ maxWidth: "600px" }}>
+          <MDBCardBody className="px-5">
+            <h2 className="text-uppercase text-center mb-5">Login</h2>
+            <MDBInput
+              wrapperClass="mb-4"
+              label="Your Email"
+              size="lg"
+              id="email"
+              type="email"
+              onChange={HandleEmailChange}
+            />
+            <MDBInput
+              wrapperClass="mb-4"
+              label="Senha"
+              size="lg"
+              id="password"
+              type="password"
+              onChange={handlePasswordChange}
+            />
+            <div className="d-flex flex-row justify-content-center mb-4">
+              <MDBCheckbox
+                name="flexCheck"
+                id="flexCheckDefault"
+                label="Concordo com os termos de contrato"
+              />
+            </div>
+            <div>
+              <p>
+                Não tem conta ? <a href="/Login">Registrar</a>
+              </p>
+            </div>
+            <MDBBtn
+              className="mb-4 w-100 gradient-custom-4"
+              size="lg"
+              onClick={async () => {
+                await loginUser();
+              }}
+            >
+              Logar
+            </MDBBtn>
+          </MDBCardBody>
+        </MDBCard>
+      </MDBContainer>
+    )
+            }
 
 export default Login;
