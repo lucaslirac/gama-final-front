@@ -7,9 +7,8 @@ export type User = {
 
 
 export interface IUser {
-    username?: string;
     email?: string;
-    token?: string;
+    token?: any;
 }
 
 export interface IAuthProvider {
