@@ -8,6 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Modal from 'react-bootstrap/Modal';
 import logo from '../../assets/images/logo.png';
 import LoginForm from '../LoginForm';
+import Login from '../loginPageform/LoginPageForm';
 import { Import, ShoppingCart, User } from 'iconsax-react';
 
 import './style.css'
@@ -46,18 +47,9 @@ function Header() {
         <Nav.Link href="#" className='perfil me-3'><User size="25" color="#000000" onClick={handleShow} /></Nav.Link>
         
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Login</Modal.Title>
-          </Modal.Header>
-          <Modal.Body> <LoginForm/> </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Fechar
-            </Button>
-            <Button variant="primary" onClick={handleClose} id="logar">
-              Entrar
-            </Button>
-          </Modal.Footer>
+       
+          <Modal.Body closeButton> <Login/> </Modal.Body>
+          
         </Modal>
       </Container>
     </Navbar>
