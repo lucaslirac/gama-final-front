@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <C.Container>
             <div>
-              <p>Livraira Leitura</p>
+              <p>Livraria Gama</p>
             </div>
             <div>
                 <span>Projeto desenvolvido por: </span>
