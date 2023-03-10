@@ -18,7 +18,7 @@ function Admin() {
 
             <div className="cta">
                 <h1>Lista de usuarios</h1>
-                <button onClick={() => navigate("/Products")}>Criar Produto</button>
+                <button onClick={() => navigate("/NewProduct")}>Criar Produto</button>
                 <button onClick={() => navigate("/Products")}>Lista de Produtos</button>
             </div>
 
