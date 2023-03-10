@@ -29,7 +29,7 @@ export default function Carrinho() {
               <>
                 {['sm', 'sm', 'sm'].map((breakpoint) => (
                   <ListGroup key={breakpoint} horizontal={breakpoint} className="my-2 mt-3">
-                   
+                    
                       <ListGroup.Item>
                         <img src='' alt="foto capa livro" className='imageBook' />
                       </ListGroup.Item>
@@ -94,7 +94,7 @@ export default function Carrinho() {
               </div>
               <br />
               <Col xs={6} md={4}>
-                  <button>Terminar compra</button>
+              <button className='btn-cart'>Comprar</button>
                 </Col>
             </Col>
           </Row>
