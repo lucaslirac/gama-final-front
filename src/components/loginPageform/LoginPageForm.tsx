@@ -73,7 +73,7 @@ function Login() {
             </div>
             <div>
               <p>
-                Não tem conta ? <a href="/Login">Registrar</a>
+                Não tem conta ? <a href="/Register">Registrar</a>
               </p>
             </div>
             <MDBBtn
