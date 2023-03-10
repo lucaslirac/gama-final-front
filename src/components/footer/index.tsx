@@ -11,8 +11,9 @@ const Footer = () => {
             <div>
                 <span>Projeto desenvolvido por: </span>
                 <a href='/'>Lucas</a>
-                <a href='/'>SEILA</a>
-                <a href='/'>Sei la</a>
+                <a href='/'>Aline</a>
+                <a href='/'>Mauricio</a>
+                <a href='/'>Ravel</a>
                
             </div>
         </C.Container>
