@@ -6,7 +6,7 @@ import { MultiStepForm } from "../../components/MultistepForm/MultistepForm";
 
 
 function Check() {
-    const navigate = useNavigate();
+    
     return (
         <div className="App">
 
