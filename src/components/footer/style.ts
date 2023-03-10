@@ -16,7 +16,6 @@ export const Container = styled.footer`
     p {
         padding: 10px;
         /* color: #212121; */
-        color: #00796B;
         font-weight: 400;
         margin: auto;
     }
