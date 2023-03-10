@@ -8,11 +8,14 @@ import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 import * as C from './carrinho.style';
+
 
 import ProductList from '../../components/produtos/ProductList';
 
 export default function Carrinho() {
+  const navigate = useNavigate();
   return (
     <div>
       <header>
@@ -94,7 +97,7 @@ export default function Carrinho() {
               </div>
               <br />
               <Col xs={6} md={4}>
-              <button className='btn-cart'>Comprar</button>
+              <button className='btn-cart'  onClick={() => navigate("/Check")}>Comprar</button>
                 </Col>
             </Col>
           </Row>
