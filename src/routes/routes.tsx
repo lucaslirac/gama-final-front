@@ -8,6 +8,7 @@ import Products from '../pages/products'
 import Carrinho from '../pages/cart'
 import Admin from '../pages/admin'
 import Check from '../pages/checkout'
+import RegisterProdu from '../pages/RegisterProduct'
 
 
 
@@ -23,6 +24,7 @@ export default function Routes() {
             <Route path="/Cart" element={<Carrinho/>} />
             <Route path="/Admin" element={<Admin/>} />
             <Route path="/Check" element={<Check/>} />
+            <Route path="/NewProduct" element={<RegisterProdu/>} />
             </WrapperRoutes>
         </BrowserRouter>
     )
