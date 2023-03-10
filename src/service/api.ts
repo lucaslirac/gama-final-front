@@ -17,6 +17,17 @@ export const getproductList = async () => {
     }
 };
 
+export const getuserList = async () => {
+    try {
+        const response = await Api.get('/user');
+        return response.data;
+    } catch (error) {
+        const err = new Error("Erro ao listar usuarios")
+        throw err
+    }
+};
+
+
 export const createUser = async (user: User) => {
     try {
         //const token = await getToken();
