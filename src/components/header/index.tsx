@@ -9,7 +9,10 @@ import Modal from 'react-bootstrap/Modal';
 import logo from '../../assets/images/logo.png';
 import LoginForm from '../LoginForm';
 import Login from '../loginPageform/LoginPageForm';
-import { Import, ShoppingCart, User } from 'iconsax-react';
+import { Import, Pointer, ShoppingCart, User } from 'iconsax-react';
+import { AiOutlineSearch } from "react-icons/ai";
+import { BsBag } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 import './style.css'
 
@@ -23,36 +26,31 @@ function Header() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navigate = useNavigate();
+
+
+  
 
   return (
-    <Navbar bg="light" expand="lg" className='nav'>
-      <Container fluid className='container'>
-        <Navbar.Brand href="/" className='logo' >Livraria Leitura</Navbar.Brand >
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/Products">Produto</Nav.Link>
-            <Nav.Link href="/About" >
-              Sobre nos
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-        <Button href='/Register' variant="primary me-3" id='register'>Registrar</Button>
-        <Nav.Link href="/Cart" className='cart me-3'><ShoppingCart size="25" color="#000000" /></Nav.Link>
-        <Nav.Link href="#" className='perfil me-3'><User size="25" color="#000000" onClick={handleShow} /></Nav.Link>
+  
+    <div className={"header-container bg-light" }>
+    <div className="header-content">
+      <h3 onClick={() => navigate("/")}>Livraria Gama</h3>
+      <nav>
+        <ul>
+          <li onClick={() => navigate("/Products")}>Produtos</li>
+          <li onClick={() => navigate("/About")}>About</li>
+        </ul>
+      </nav>
+      <div className="cart">
+        <BsBag size={22} color={"#000" } onClick={() => navigate("/Cart")}/>
+        <p>3</p>
+        <Button variant="outline-dark" onClick={() => navigate("/Register")}>Registrar</Button>
+        <Button variant="outline-dark" onClick={() => navigate("/Login")}>Login</Button>
         
-        <Modal show={show} onHide={handleClose}>
-       
-          <Modal.Body closeButton> <Login/> </Modal.Body>
-          
-        </Modal>
-      </Container>
-    </Navbar>
+      </div>
+    </div>
+  </div>
   )
 }
 
