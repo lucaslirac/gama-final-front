@@ -74,9 +74,6 @@ export const InputWrapper = styled.div`
             transition: opacity 0.2s ease, transform 0.2s ease;
            
         }
-        &:hover {
-            border: 1px solid var(--second-color);
-        }
         &:focus {
             border: 1px solid var(--second-color);
             background-color: var(--first-color);
