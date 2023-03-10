@@ -6,6 +6,7 @@ import Register from '../pages/register'
 import Login from '../pages/login'
 import Products from '../pages/products'
 import Carrinho from '../pages/cart'
+import Admin from '../pages/admin'
 
 
 
@@ -19,6 +20,7 @@ export default function Routes() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Products" element={<Products/>} />
             <Route path="/Cart" element={<Carrinho/>} />
+            <Route path="/Admin" element={<Admin/>} />
 
             </WrapperRoutes>
         </BrowserRouter>
