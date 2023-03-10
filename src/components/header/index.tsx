@@ -47,6 +47,7 @@ function Header() {
         <p>3</p>
         <Button variant="outline-dark" onClick={() => navigate("/Register")}>Registrar</Button>
         <Button variant="outline-dark" onClick={() => navigate("/Login")}>Login</Button>
+        <Button variant="outline-dark" onClick={() => navigate("/Admin")}>Admin</Button>
         
       </div>
     </div>
