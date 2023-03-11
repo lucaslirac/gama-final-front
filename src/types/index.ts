@@ -14,3 +14,13 @@ export interface IUser {
 export interface IAuthProvider {
     children: JSX.Element | JSX.Element[];
 }
+
+export type Product ={
+
+    name: string
+    description:string
+    price: number
+    image:string
+    category:string
+
+}
