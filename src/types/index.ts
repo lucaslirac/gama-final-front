@@ -1,14 +1,17 @@
 export type User = {
-    name: string
-    email: string
-    password: string
-    role: string
+    _id: string;
+    name: string;
+    email: string;
+    password: string;
+    role: string;
 }
 
 
-export interface IUser {
-    email?: string;
-    token?: any;
+export interface IAuth {
+    id: string;
+    email: string;
+    token: string;
+    isAdmin: boolean;
 }
 
 export interface IAuthProvider {
@@ -16,7 +19,7 @@ export interface IAuthProvider {
 }
 
 export type Product ={
-
+    _id?: string
     name: string
     description:string
     price: number
