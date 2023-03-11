@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { redirect } from 'react-router-dom'
+
 import {
     MDBBtn,
     MDBContainer,
@@ -12,13 +14,15 @@ import {
 }
     from 'mdb-react-ui-kit';
 import { signIn } from '../../service/api';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 
 
 
 function Login() {
 
-    
+    const { setAuth } = useContext(AuthContext);
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -35,8 +39,14 @@ function Login() {
   
   
     const loginUser = async () => {
-      const response = await signIn({  email, password });
-     //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
+      const { auth, error } = await signIn({  email, password });
+
+      if (!error && auth) {
+        setAuth(auth);
+        redirect('/Home'); // NÃO TÁ FUNCIONANDO.
+      }
+
+      // se não, mostrar mensagem de error
     };
 
     return (
