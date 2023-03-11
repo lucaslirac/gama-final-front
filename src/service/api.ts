@@ -2,7 +2,9 @@ import axios, { Axios } from "axios";
 import { Await } from "react-router-dom";
 import { User } from "../types/index"
 import { Product } from "../types/index"
-import { IUser } from "../types/index";
+import { IAuth } from "../types/index";
+import { setAuthLocalStorage, getAuthLocalStorage } from './localStorage';
+
 export const Api = axios.create({ 
     baseURL: "https://desafio-final-gama-46-back-production.up.railway.app",
 
@@ -62,40 +64,59 @@ export const getToken = async () => {
     }
 }
 
+type SignInProps = {
+    email:string;
+    password:string;
+}
 
-export const signIn = async ({email, password}: {email:string; password:string}) => {
+type ResponseAuth = {
+    auth?: IAuth;
+    error?: any
+}
+
+export const signIn = async ({ email, password }: SignInProps): Promise<ResponseAuth>  => {
     try {
        
-        const  data  = await Api.post('/auth/login', {email, password});
-        const payload = {token:data}
-        setUserLocalStorage(payload)
-        console.log({data})
-        return data.data ?? "";
-    } catch (error: any) {
+        const  { data }  = await Api.post<{ token: string }>('/auth/login', { email, password });
+        const payload = { token: data.token };
+        const user = await getUser({ email, token: data.token });
+        
+        let auth;
 
+        if (user) {
+            auth = {
+                id: user._id,
+                email,
+                token: data.token,
+                isAdmin: user.role === 'admin',
+            };
+
+            setAuthLocalStorage(auth)
+        }
+
+        return { auth, error: null  };
+    } catch (error: any) {
         console.error(error);
-        return { status: error.response.status };
+        return { auth: undefined, error };
     }
 }
 
+export const getUser = async ({ email, token }: { email: string; token: string }): Promise<User | null> => {
+    try {
+       
+        const  { data }  = await Api.get<{ users: Array<User> }>('/user', { headers: { authorization: token } });
+        const user = data.users.find(user => user.email === email);
 
+        console.log('user', user);
 
-export function setUserLocalStorage(user: IUser | null) {
-    localStorage.setItem("u", JSON.stringify(user));
-}
-
-
-export function getUserLocalStorage() {
-    const json = localStorage.getItem("u")
-
-    if (!json) {
+        return user as User;
+    } catch (error: any) {
+        console.error(error);
         return null;
     }
-
-    const user = JSON.parse(json)
-
-    return user ?? null;
 }
+
+
 
 
 export const createProduct = async (product: Product) => {
@@ -104,7 +125,7 @@ export const createProduct = async (product: Product) => {
         console.log(product)
         const { data, status, ...props } = await Api.post('/product', product, {
             headers: {
-                Authorization: token    
+                 Authorization: token    
 
 
             }
