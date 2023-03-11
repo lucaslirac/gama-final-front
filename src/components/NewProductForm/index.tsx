@@ -16,7 +16,7 @@ function RegisterProduct() {
   const [description, setdescription] = useState("");
   const [price, setprice] = useState(0);
   const [image, setimage] = useState("");
-  const [category, setcategory] = useState("");
+  const [category, setcategory] = useState("6405f1a023d99232913d717d");
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -85,14 +85,14 @@ function RegisterProduct() {
             type="text"
             onChange={handleImageChange}
           />
-             <MDBInput
+             {/*<MDBInput
             wrapperClass="mb-4"
             label="categoria"
             size="lg"
             id="category"
             type="text"
             onChange={handlecategoryChange}
-          />
+          />*/}
           <MDBBtn
             className="mb-4 w-100 gradient-custom-4"
             size="lg"
