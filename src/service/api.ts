@@ -1,6 +1,7 @@
 import axios, { Axios } from "axios";
 import { Await } from "react-router-dom";
 import { User } from "../types/index"
+import { Product } from "../types/index"
 import { IUser } from "../types/index";
 export const Api = axios.create({ 
     baseURL: "https://desafio-final-gama-46-back-production.up.railway.app",
@@ -51,10 +52,10 @@ export const getToken = async () => {
     try {
         const admin = {
             "email": "adminuser@email.com",
-            "password": "password123"
+            "password": "password123" 
         }
         const { data } = await Api.post('/auth/login', admin);
-
+        console.log(data.token)
         return data?.token ?? "";
     } catch (error) {
 
@@ -95,3 +96,23 @@ export function getUserLocalStorage() {
 
     return user ?? null;
 }
+
+
+export const createProduct = async (product: Product) => {
+    try {
+        const token = await getToken();
+        console.log(product)
+        const { data, status, ...props } = await Api.post('/product', product, {
+            headers: {
+                Authorization: token    
+
+
+            }
+        });
+        alert('Produto cadastrado com sucesso!');
+        return { data, status };
+    } catch (error: any) {
+        console.error(error);
+        return { status: error.response.status };
+    }
+};
