@@ -10,6 +10,8 @@ import Carrinho from '../pages/cart'
 import Admin from '../pages/admin'
 import Check from '../pages/checkout'
 import RegisterProdu from '../pages/RegisterProduct'
+import PageUserList from '../pages/PageUserList';
+import PageProductList from '../pages/PageProductList';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 
@@ -36,6 +38,8 @@ export default function Routes() {
             {auth?.isAdmin && <Route path="/Admin" element={<Admin/>} /> }
             <Route path="/Check" element={<Check/>} />
             <Route path="/NewProduct" element={<RegisterProdu/>} />
+            <Route path="/UserList" element={<PageUserList/>} />
+            <Route path="/ProductList" element={<PageProductList/>} />
             </WrapperRoutes>
         </BrowserRouter>
     )
