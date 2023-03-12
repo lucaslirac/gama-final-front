@@ -17,16 +17,13 @@ function Admin() {
             </header>
 
             <div className="cta">
-                <h1>Lista de usuarios</h1>
+                <h1>Painel Admin</h1>
                 <button onClick={() => navigate("/NewProduct")}>Criar Produto</button>
-                <button onClick={() => navigate("/Products")}>Lista de Produtos</button>
+                <button onClick={() => navigate("/UserList")}>Lista de Usuarios</button>
+                <button onClick={() => navigate("/ProductList")}>Lista de Produtos</button>
             </div>
 
-            <div>
-                <div>
-                    <UserList />
-                </div>
-            </div>
+            
             <footer>
                 <Footer />
             </footer>
