@@ -9,8 +9,11 @@ import {
 } from "mdb-react-ui-kit";
 import { Api, createUser } from "../../service/api";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
+
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -88,6 +91,7 @@ function RegisterForm() {
             size="lg"
             onClick={async () => {
               await registerUser();
+              
             }}
           >
             Registrar
