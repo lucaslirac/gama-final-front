@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { redirect } from 'react-router-dom'
+import { redirect, useNavigate } from 'react-router-dom'
 
 import {
     MDBBtn,
@@ -20,6 +20,7 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 
 function Login() {
+  const navigate = useNavigate();
 
     const { setAuth } = useContext(AuthContext);
 
@@ -48,8 +49,10 @@ function Login() {
 
       // se não, mostrar mensagem de error
     };
+    
 
     return (
+      
         <MDBContainer
         fluid
         className="d-flex align-items-center justify-content-center bg-image mt-5"
@@ -91,8 +94,12 @@ function Login() {
               size="lg"
               onClick={async () => {
                 await loginUser();
+            
+                
+              
               }}
             >
+              
               Logar
             </MDBBtn>
           </MDBCardBody>
