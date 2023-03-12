@@ -44,7 +44,7 @@ function Login() {
 
       if (!error && auth) {
         setAuth(auth);
-        redirect('/Home'); // NÃO TÁ FUNCIONANDO.
+        navigate("/"); // FUNCIONANDO.
       }
 
       // se não, mostrar mensagem de error
