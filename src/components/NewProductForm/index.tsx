@@ -52,7 +52,7 @@ function RegisterProduct() {
       <div className="mask gradient-custom-3"></div>
       <MDBCard className="m-5" style={{ maxWidth: "600px" }}>
         <MDBCardBody className="px-5">
-          <h2 className="text-uppercase text-center mb-5">Criar conta</h2>
+          <h2 className="text-uppercase text-center mb-5">Formulario</h2>
           <MDBInput
             wrapperClass="mb-4"
             label="Nome do Produto"
