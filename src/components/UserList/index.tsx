@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
 
 
 
@@ -19,6 +20,12 @@ type UserProps = {
   };
 
 export default function ListUser(props: UserProps) {
+
+  const [text, setText] = useState('');
+
+  const handleClick = () => {
+    setText('admin');
+  };
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -37,12 +44,12 @@ export default function ListUser(props: UserProps) {
               
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row"  align="left">
               {props.name}
               </TableCell>
-              <TableCell align="center">{props.email}</TableCell>
+              <TableCell align="center"> { props.email }</TableCell>
               
-              <TableCell align="right">{props.role}  <Button variant="outline-dark" size='sm'>Mudar</Button> </TableCell>
+              <TableCell align="right">{props.role}  <Button variant="outline-dark" size='sm'>Mudar</Button>  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
             
             </TableRow>
           
