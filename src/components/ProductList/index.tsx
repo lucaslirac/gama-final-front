@@ -12,13 +12,13 @@ import { useState } from 'react';
 
 
 type ProductProps = {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    image: string;
-  }
-  
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
+
 
 export default function ListProduct(props: ProductProps) {
 
@@ -29,26 +29,22 @@ export default function ListProduct(props: ProductProps) {
           <TableRow>
             <TableCell></TableCell>
             <TableCell align="right"></TableCell>
-          
+
             <TableCell align="right"></TableCell>
-            
+
           </TableRow>
         </TableHead>
         <TableBody>
-          
-            <TableRow
-              
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
+          <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+            <TableCell component="th" scope="row">
               {props.description}
-              </TableCell>
-              <TableCell align="center">{props.name}</TableCell>
-              
-              <TableCell align="right">{props.price}  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
-            
-            </TableRow>
-          
+            </TableCell>
+            <TableCell align="center">{props.name}</TableCell>
+
+            <TableCell align="right">{props.price}  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
+
+          </TableRow>
+
         </TableBody>
       </Table>
     </TableContainer>
