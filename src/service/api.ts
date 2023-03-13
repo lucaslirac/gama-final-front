@@ -116,6 +116,30 @@ export const getUser = async ({ email, token }: { email: string; token: string }
     }
 }
 
+export const getUserById = async (id: string) => {
+    try {
+        const response = await Api.get(`/user/${id}`)
+        return response.data
+    }catch (error: any) {
+        console.error(error);
+        return null;
+    }
+}
+
+
+export const getProductById = async (id: string) => {
+    try {
+        const response = await Api.get(`/product/${id}`)
+        return response.data
+    }catch (error: any) {
+        console.error(error);
+        return null;
+    }
+}
+
+
+
+
 
 
 
