@@ -19,7 +19,7 @@
 <pre>npm install</pre>
 
 4 - Inicie o servidor com o comando:
-<pre>npm start</pre>
+<pre>npm run dev</pre>
 <br>
 
 <h2 align="center">:page_facing_up: Documentação</h2>
