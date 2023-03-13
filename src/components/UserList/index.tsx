@@ -51,8 +51,8 @@ export default function ListUser(props: UserProps) {
               {props.name}
               </TableCell>
               <TableCell align="center"> { props.email }</TableCell>
-              
-              <TableCell align="right">{props.role}  <Button variant="outline-dark" size='sm'  onClick={() => navigate(`/EditUser/?${props._id}`)}>Editar</Button>  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
+
+              <TableCell align="right">{props.role}  <Button variant="outline-dark" size='sm'  onClick={() => navigate(`/EditUser/${props._id}`)}>Editar</Button>  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
             
             </TableRow>
           
