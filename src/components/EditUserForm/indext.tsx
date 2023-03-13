@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { redirect, useNavigate } from 'react-router-dom'
+import { redirect, useNavigate, useParams } from 'react-router-dom'
 
 import {
     MDBBtn,
@@ -22,28 +22,58 @@ interface EditLoginProps {
   id: string
 }
 
-function EditLogin({id}: EditLoginProps) {
+function EditLogin() {
+  const { id } = useParams();
+ 
+  const [user, setUser] = useState<User>({} as User);
+  console.log('id-----', id);
 
-  
-  const [user, setUser] = useState<{} | User>({})
-  console.log(id)
+  const fetchUser = async (id: string) => {
+    const userData = await getUserById(id)
+    console.log(userData);
+    setUser(userData.user);
+  }
   
   useEffect(() => {
-    const editUser = async () => {
-      const userData = await getUserById(id)
-      console.log(userData)
-      setUser(userData.user)
-    }
-    editUser()
-  }, [])
+    if (id) fetchUser(id);
+  }, [id])
+
+
+
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState(user.password);
+  const [role, setRole] = useState(user.role);
+
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const handleRoleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRole(event.target.value);
+  };
+
+  const UpdateUser = async () => {
+    const response = await getUserById({ name, email, password, role });
+   //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
+   console.log(name, email, password, role)
+  };
+
  
 
-    return (
-      
-        <MDBContainer
-        fluid
-        className="d-flex align-items-center justify-content-center bg-image mt-5"
-      >
+  return (
+    <MDBContainer
+      fluid
+      className="d-flex align-items-center justify-content-center bg-image mt-5"
+    >
         <div className="mask gradient-custom-3"></div>
         <MDBCard className="m-5" style={{ maxWidth: "600px" }}>
           <MDBCardBody className="px-5">
@@ -54,8 +84,8 @@ function EditLogin({id}: EditLoginProps) {
               size="lg"
               id="name"
               type="text"
-              value={user.name}
-              //onChange={HandleEmailChange}
+              value={name}
+              onChange={handleNameChange}
             />
             <MDBInput
               wrapperClass="mb-4"
@@ -63,8 +93,9 @@ function EditLogin({id}: EditLoginProps) {
               size="lg"
               id="email"
               type="email"
+              value={email}
              
-              //onChange={HandleEmailChange}
+              onChange={handleEmailChange}
             />
             <MDBInput
               wrapperClass="mb-4"
@@ -72,7 +103,8 @@ function EditLogin({id}: EditLoginProps) {
               size="lg"
               id="password"
               type="password"
-              //onChange={handlePasswordChange}
+              value={password}
+              onChange={handlePasswordChange}
             />
              <MDBInput
               wrapperClass="mb-4"
@@ -80,21 +112,15 @@ function EditLogin({id}: EditLoginProps) {
               size="lg"
               id="Role"
               type="text"
-              //onChange={handlePasswordChange}
+              value={role}
+              onChange={handleRoleChange}
             />
-            <div className="d-flex flex-row justify-content-center mb-4">
-              <MDBCheckbox
-                name="flexCheck"
-                id="flexCheckDefault"
-                label="Concordo com os termos de contrato"
-              />
-            </div>
            
             <MDBBtn
               className="mb-4 w-100 gradient-custom-4"
               size="lg"
               onClick={async () => {
-                //await loginUser();
+                await UpdateUser();
             
                 
               
