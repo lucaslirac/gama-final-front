@@ -8,11 +8,13 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 type UserProps = {
-  
+
+    _id: string
     name: string;
     email: string;
     role: number;
@@ -26,6 +28,7 @@ export default function ListUser(props: UserProps) {
   const handleClick = () => {
     setText('admin');
   };
+  const navigate = useNavigate();
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -49,7 +52,7 @@ export default function ListUser(props: UserProps) {
               </TableCell>
               <TableCell align="center"> { props.email }</TableCell>
               
-              <TableCell align="right">{props.role}  <Button variant="outline-dark" size='sm'>Mudar</Button>  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
+              <TableCell align="right">{props.role}  <Button variant="outline-dark" size='sm'  onClick={() => navigate(`/EditUser/?${props._id}`)}>Editar</Button>  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
             
             </TableRow>
           
