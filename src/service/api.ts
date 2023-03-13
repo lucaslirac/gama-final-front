@@ -31,6 +31,8 @@ export const getuserList = async () => {
 };
 
 
+// ----- Criar Usuario -----
+
 export const createUser = async (user: User) => {
     try {
         //const token = await getToken();
@@ -49,6 +51,22 @@ export const createUser = async (user: User) => {
         return { status: error.response.status };
     }
 };
+
+
+
+// ----- Deletar Usuario -----
+
+export const deleteUser = async (_id: User) => {
+    try {
+      const response = await axios.delete(`'/user'${_id}`);
+      console.log(response.data); 
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+
 
 export const getToken = async () => {
     try {
@@ -161,3 +179,51 @@ export const createProduct = async (product: Product) => {
         return { status: error.response.status };
     }
 };
+
+
+// ----- Criar Order -----
+/**
+ * params: 
+ *  token,
+ *  [product_id]
+ * 
+ * url: POST /order
+ */
+// export const createOrder = async () => {
+//     try {
+//     
+//         const { data, status, ...props } = await Api.post('/user', user, {
+//             headers: {
+//                // Authorization: token    
+//             }
+//         });
+//         return { data, status };
+//     } catch (error: any) {
+//         console.error(error);
+//         return { status: error.response.status };
+//     }
+// };
+
+// ----- Update Produto -----
+/**
+ * params: 
+ *  token,
+ *  cartId,
+ *  [product_id]
+ * 
+ * url: PUT /order/cartId
+ */
+// export const updateOrder = async () => {
+//     try {
+//     
+//         const { data, status, ...props } = await Api.post('/user', user, {
+//             headers: {
+//                // Authorization: token    
+//             }
+//         });
+//         return { data, status };
+//     } catch (error: any) {
+//         console.error(error);
+//         return { status: error.response.status };
+//     }
+// };
