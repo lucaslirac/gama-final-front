@@ -12,6 +12,7 @@ import Check from '../pages/checkout'
 import RegisterProdu from '../pages/RegisterProduct'
 import PageUserList from '../pages/PageUserList';
 import PageProductList from '../pages/PageProductList';
+import EditUser from '../pages/EditUser';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 
 
@@ -40,6 +41,7 @@ export default function Routes() {
             <Route path="/NewProduct" element={<RegisterProdu/>} />
             <Route path="/UserList" element={<PageUserList/>} />
             <Route path="/ProductList" element={<PageProductList/>} />
+            <Route path="/EditUser" element={<EditUser/>} />
             </WrapperRoutes>
         </BrowserRouter>
     )
