@@ -10,8 +10,6 @@ import { getUserById } from "../../service/api";
 import { User } from '../../types';
 
 
-const id = window.location.search.split('?')[1];
-
 function EditUser() {
     const navigate = useNavigate();
 
@@ -29,7 +27,7 @@ function EditUser() {
 
             <div>
                 <div>
-                    <EditLogin id={id} />
+                    <EditLogin />
                 </div>
             </div>
             <footer>
