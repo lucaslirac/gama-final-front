@@ -17,6 +17,13 @@ export const AuthContext = createContext({
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [auth, setAuth] = useState<IAuth>({} as IAuth);
+  /**
+   * useEffect(() => {
+   *  verificar no localStorage.auth !== auth
+   * 
+   * setAuth(auth);
+   * }, [])
+   */
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
