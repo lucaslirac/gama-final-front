@@ -21,7 +21,7 @@ export function setAuthLocalStorage(user?: IAuth) {
 }
 
 export function getAuthLocalStorage(): IAuth | null {
-  const user = getItemLocalStorage("u")
+  const user = getItemLocalStorage("auth")
 
   return user ? JSON.parse(user) : null;
 }
