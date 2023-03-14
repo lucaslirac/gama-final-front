@@ -21,13 +21,13 @@ function PageProductList() {
             <div className="cta">
                 <h1>Painel de Produtos</h1>
                 <button onClick={() => navigate("/Admin")}>Voltar para admin</button>
-                
-                
+
+
             </div>
 
             <div>
                 <div>
-                    <PProductList  />
+                    <PProductList />
                 </div>
             </div>
             <footer>

@@ -5,22 +5,22 @@ import RegisterProduct from "../../components/NewProductForm";
 import { useNavigate } from "react-router-dom";
 
 
-function RegisterProdu(){
+function RegisterProdu() {
     const navigate = useNavigate();
-    return(
+    return (
         <div className="App">
-        <Header/>
-       <div>
-        <div className="cta">
-        <h1>Criar Produto</h1>
-                <button onClick={() => navigate("/Admin")}>Voltar para admin</button>
+            <Header />
+            <div>
+                <div className="cta">
+                    <h1>Criar Produto</h1>
+                    <button onClick={() => navigate("/Admin")}>Voltar para admin</button>
+                </div>
+                <div>
+                    <RegisterProduct />
+                </div>
+            </div>
+            <Footer />
         </div>
-        <div>
-            <RegisterProduct />
-        </div>
-       </div>
-        <Footer />
-      </div>
     )
 }
 

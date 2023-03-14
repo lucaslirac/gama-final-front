@@ -27,21 +27,21 @@ export default function Routes() {
      * how redirect auth react-router-dom
      */
 
-    return(
+    return (
         <BrowserRouter>
             <WrapperRoutes>
                 <Route path="/" element={<Home />} />
                 <Route path="/About" element={<About />} />
                 <Route path="/Register" element={<Register />} />
                 <Route path="/Login" element={<Login />} />
-                <Route path="/Products" element={<Products/>} />
-                <Route path="/Cart" element={<Carrinho/>} />
-                {auth?.isAdmin && <Route path="/Admin" element={<Admin/>} /> }
-                <Route path="/Check" element={<Check/>} />
-                <Route path="/NewProduct" element={<RegisterProdu/>} />
-                <Route path="/UserList" element={<PageUserList/>} />
-                <Route path="/ProductList" element={<PageProductList/>} />
-                <Route path="/EditUser/:id" element={<EditUser/>} />
+                <Route path="/Products" element={<Products />} />
+                <Route path="/Cart" element={<Carrinho />} />
+                {auth?.isAdmin && <Route path="/Admin" element={<Admin />} />}
+                <Route path="/Check" element={<Check />} />
+                <Route path="/NewProduct" element={<RegisterProdu />} />
+                <Route path="/UserList" element={<PageUserList />} />
+                <Route path="/ProductList" element={<PageProductList />} />
+                <Route path="/EditUser/:id" element={<EditUser />} />
             </WrapperRoutes>
         </BrowserRouter>
     )

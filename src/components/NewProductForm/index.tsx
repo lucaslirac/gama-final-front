@@ -40,8 +40,8 @@ function RegisterProduct() {
 
   const registerProduct = async () => {
     const response = await createProduct({ name, description, price, image, category });
-   //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
-   console.log(name, description, price, image, category)
+    //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
+    console.log(name, description, price, image, category)
   };
 
   return (
@@ -66,7 +66,7 @@ function RegisterProduct() {
             label="Descricao"
             size="lg"
             id="description"
-          
+
             onChange={handleDescriptionChange}
           />
           <MDBInput
@@ -77,7 +77,7 @@ function RegisterProduct() {
             type="number"
             onChange={handlePriceChange}
           />
-             <MDBInput
+          <MDBInput
             wrapperClass="mb-4"
             label="image"
             size="lg"
@@ -85,7 +85,7 @@ function RegisterProduct() {
             type="text"
             onChange={handleImageChange}
           />
-             {/*<MDBInput
+          {/*<MDBInput
             wrapperClass="mb-4"
             label="categoria"
             size="lg"

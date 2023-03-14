@@ -18,12 +18,12 @@ export interface IAuthProvider {
     children: JSX.Element | JSX.Element[];
 }
 
-export type Product ={
+export type Product = {
     _id?: string
     name: string
-    description:string
+    description: string
     price: number
-    image:string
-    category:string
+    image: string
+    category: string
 
 }

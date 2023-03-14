@@ -23,7 +23,7 @@ function Admin() {
                 <button onClick={() => navigate("/ProductList")}>Lista de Produtos</button>
             </div>
 
-            
+
             <footer>
                 <Footer />
             </footer>

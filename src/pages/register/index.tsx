@@ -4,17 +4,17 @@ import Footer from "../../components/footer";
 import RegisterForm from "../../components/RegisterForm";
 
 
-function Register(){
-    return(
+function Register() {
+    return (
         <div className="App">
-        <Header/>
-       <div>
-        <div>
-            <RegisterForm />
+            <Header />
+            <div>
+                <div>
+                    <RegisterForm />
+                </div>
+            </div>
+            <Footer />
         </div>
-       </div>
-        <Footer />
-      </div>
     )
 }
 

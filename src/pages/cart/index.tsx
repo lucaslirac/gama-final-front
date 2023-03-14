@@ -32,25 +32,25 @@ export default function Carrinho() {
               <>
                 {['sm', 'sm', 'sm'].map((breakpoint) => (
                   <ListGroup key={breakpoint} horizontal={breakpoint} className="my-2 mt-3">
-                    
+
                     <ListGroup.Item>
                       <img src='' alt="foto capa livro" className='imageBook' />
                     </ListGroup.Item>
-                   
+
 
                     <ListGroup.Item>
                       <div className="nomeLivro">
-                       
+
                       </div>
                     </ListGroup.Item>
 
                     <ListGroup.Item>
-                      
+
                     </ListGroup.Item>
 
 
                     <ListGroup.Item><Button variant="light">Excluir</Button>{' '}</ListGroup.Item>
-                  
+
                   </ListGroup>
                 ))}
               </>
@@ -82,7 +82,7 @@ export default function Carrinho() {
                 <Col xs={12} md={8}>
                   Envio
                 </Col>
-               
+
               </Row>
 
               <div className="total">
@@ -97,8 +97,8 @@ export default function Carrinho() {
               </div>
               <br />
               <Col xs={6} md={4}>
-              <button className='btn-cart'  onClick={() => navigate("/Check")}>Comprar</button>
-                </Col>
+                <button className='btn-cart' onClick={() => navigate("/Check")}>Comprar</button>
+              </Col>
             </Col>
           </Row>
         </C.Container>
@@ -106,7 +106,7 @@ export default function Carrinho() {
       </main>
 
       <footer>
-       <Footer />
+        <Footer />
       </footer>
     </div>
 

@@ -37,8 +37,8 @@ function RegisterForm() {
 
   const registerUser = async () => {
     const response = await createUser({ name, email, password, role });
-   //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
-   console.log(name, email, password, role)
+    //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
+    console.log(name, email, password, role)
   };
 
   return (
@@ -91,7 +91,7 @@ function RegisterForm() {
             size="lg"
             onClick={async () => {
               await registerUser();
-              
+
             }}
           >
             Registrar

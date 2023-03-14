@@ -4,17 +4,17 @@ import Footer from "../../components/footer";
 
 
 
-function About(){
-    return(
+function About() {
+    return (
         <div className="App">
-        <Header/>
-       <div>
-        <div>
-            <h2>Sobre nos</h2>
+            <Header />
+            <div>
+                <div>
+                    <h2>Sobre nos</h2>
+                </div>
+            </div>
+            <Footer />
         </div>
-       </div>
-        <Footer />
-      </div>
     )
 }
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductItem from './ProductItem';
 import { getproductList } from '../../service/api';
 import ProductCard from '../Productcard';
@@ -17,19 +17,19 @@ const ProductList: React.FC = () => {
 
   const [productList, setProductList] = useState<any[]>([])
 
-useEffect(() => {
-  const fetchProductList = async () => {
-    const allProducts = await getproductList()
-    setProductList(allProducts.products)
-  }
-  fetchProductList()
-}, [])
+  useEffect(() => {
+    const fetchProductList = async () => {
+      const allProducts = await getproductList()
+      setProductList(allProducts.products)
+    }
+    fetchProductList()
+  }, [])
 
 
 
 
   return (
-    <div> 
+    <div>
       {productList.map(product => (
         <>
           <ProductCard {...product} />

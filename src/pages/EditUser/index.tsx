@@ -21,7 +21,7 @@ function EditUser() {
             </header>
 
             <div className="cta">
-             
+
                 <button onClick={() => navigate("/UserList")}>Voltar para lista de usuarios</button>
             </div>
 

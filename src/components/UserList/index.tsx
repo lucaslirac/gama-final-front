@@ -14,12 +14,12 @@ import { useNavigate } from 'react-router-dom';
 
 type UserProps = {
 
-    _id: string
-    name: string;
-    email: string;
-    role: number;
-   
-  };
+  _id: string
+  name: string;
+  email: string;
+  role: number;
+
+};
 
 export default function ListUser(props: UserProps) {
 
@@ -36,26 +36,26 @@ export default function ListUser(props: UserProps) {
           <TableRow>
             <TableCell></TableCell>
             <TableCell align="right"></TableCell>
-          
+
             <TableCell align="right"></TableCell>
-            
+
           </TableRow>
         </TableHead>
         <TableBody>
-          
-            <TableRow
-              
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row"  align="left">
-              {props.name}
-              </TableCell>
-              <TableCell align="center"> { props.email }</TableCell>
 
-              <TableCell align="right">{props.role}  <Button variant="outline-dark" size='sm'  onClick={() => navigate(`/EditUser/${props._id}`)}>Editar</Button>  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
-            
-            </TableRow>
-          
+          <TableRow
+
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row" align="left">
+              {props.name}
+            </TableCell>
+            <TableCell align="center"> {props.email}</TableCell>
+
+            <TableCell align="right">{props.role}  <Button variant="outline-dark" size='sm' onClick={() => navigate(`/EditUser/${props._id}`)}>Editar</Button>  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
+
+          </TableRow>
+
         </TableBody>
       </Table>
     </TableContainer>

@@ -18,8 +18,8 @@ function PageUserList() {
             <div className="cta">
                 <h1>Painel Usuarios</h1>
                 <button onClick={() => navigate("/Admin")}>Voltar para admin</button>
-                
-                
+
+
             </div>
 
             <div>

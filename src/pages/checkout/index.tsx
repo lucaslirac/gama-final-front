@@ -6,7 +6,7 @@ import { MultiStepForm } from "../../components/MultistepForm/MultistepForm";
 
 
 function Check() {
-    
+
     return (
         <div className="App">
 

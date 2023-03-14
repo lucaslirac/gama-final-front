@@ -30,7 +30,7 @@
 }
 
 .header-content h3 {
-   
+
     cursor: pointer;
 }
 
@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    
+
 }
 
 .header-container nav ul li {
@@ -63,6 +63,6 @@
 }
 
 
-.cart{
+.cart {
     cursor: pointer;
 }

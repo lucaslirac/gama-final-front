@@ -1,18 +1,18 @@
-.carousel{
+.carousel {
     padding: 10px;
     align-items: center;
     justify-content: center;
     border-radius: 5000px;
-    
+
 }
 
-.carousel img{
+.carousel img {
     width: 700px;
-    height: 400px; 
+    height: 400px;
 }
 
-.carousel p{
+.carousel p {
     font-size: 30px;
-   
+
     color: black;
 }

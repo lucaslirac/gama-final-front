@@ -5,7 +5,7 @@ import { Product } from "../types/index"
 import { IAuth } from "../types/index";
 import { setAuthLocalStorage, getAuthLocalStorage } from './localStorage';
 
-export const Api = axios.create({ 
+export const Api = axios.create({
     baseURL: "https://desafio-final-gama-46-back-production.up.railway.app",
 
 });
@@ -39,7 +39,7 @@ export const createUser = async (user: User) => {
         console.log(user)
         const { data, status, ...props } = await Api.post('/user', user, {
             headers: {
-               // Authorization: token    
+                // Authorization: token    
 
 
             }
@@ -58,12 +58,12 @@ export const createUser = async (user: User) => {
 
 export const deleteUser = async (_id: User) => {
     try {
-      const response = await axios.delete(`'/user'${_id}`);
-      console.log(response.data); 
+        const response = await axios.delete(`'/user'${_id}`);
+        console.log(response.data);
     } catch (error) {
-      console.error(error);
+        console.error(error);
     }
-  };
+};
 
 
 
@@ -72,7 +72,7 @@ export const getToken = async () => {
     try {
         const admin = {
             "email": "adminuser@email.com",
-            "password": "password123" 
+            "password": "password123"
         }
         const { data } = await Api.post('/auth/login', admin);
         console.log(data.token)
@@ -83,8 +83,8 @@ export const getToken = async () => {
 }
 
 type SignInProps = {
-    email:string;
-    password:string;
+    email: string;
+    password: string;
 }
 
 type ResponseAuth = {
@@ -92,13 +92,13 @@ type ResponseAuth = {
     error?: any
 }
 
-export const signIn = async ({ email, password }: SignInProps): Promise<ResponseAuth>  => {
+export const signIn = async ({ email, password }: SignInProps): Promise<ResponseAuth> => {
     try {
-       
-        const  { data }  = await Api.post<{ token: string }>('/auth/login', { email, password });
+
+        const { data } = await Api.post<{ token: string }>('/auth/login', { email, password });
         const payload = { token: data.token };
         const user = await getUser({ email, token: data.token });
-        
+
         let auth;
 
         if (user) {
@@ -112,7 +112,7 @@ export const signIn = async ({ email, password }: SignInProps): Promise<Response
             setAuthLocalStorage(auth)
         }
 
-        return { auth, error: null  };
+        return { auth, error: null };
     } catch (error: any) {
         console.error(error);
         return { auth: undefined, error };
@@ -121,8 +121,8 @@ export const signIn = async ({ email, password }: SignInProps): Promise<Response
 
 export const getUser = async ({ email, token }: { email: string; token: string }): Promise<User | null> => {
     try {
-       
-        const  { data }  = await Api.get<{ users: Array<User> }>('/user', { headers: { authorization: token } });
+
+        const { data } = await Api.get<{ users: Array<User> }>('/user', { headers: { authorization: token } });
         const user = data.users.find(user => user.email === email);
 
         console.log('user', user);
@@ -138,7 +138,7 @@ export const getUserById = async (id: string) => {
     try {
         const response = await Api.get(`/user/${id}`)
         return response.data
-    }catch (error: any) {
+    } catch (error: any) {
         console.error(error);
         return null;
     }
@@ -149,7 +149,7 @@ export const getProductById = async (id: string) => {
     try {
         const response = await Api.get(`/product/${id}`)
         return response.data
-    }catch (error: any) {
+    } catch (error: any) {
         console.error(error);
         return null;
     }
@@ -167,7 +167,7 @@ export const createProduct = async (product: Product) => {
         console.log(product)
         const { data, status, ...props } = await Api.post('/product', product, {
             headers: {
-                 Authorization: token    
+                Authorization: token
 
 
             }
@@ -183,18 +183,18 @@ export const createProduct = async (product: Product) => {
 
 // ----- Criar Order -----
 /**
- * params: 
+ * params:
  *  token,
  *  [product_id]
- * 
+ *
  * url: POST /order
  */
 // export const createOrder = async () => {
 //     try {
-//     
+//
 //         const { data, status, ...props } = await Api.post('/user', user, {
 //             headers: {
-//                // Authorization: token    
+//                // Authorization: token
 //             }
 //         });
 //         return { data, status };
@@ -206,19 +206,19 @@ export const createProduct = async (product: Product) => {
 
 // ----- Update Produto -----
 /**
- * params: 
+ * params:
  *  token,
  *  cartId,
  *  [product_id]
- * 
+ *
  * url: PUT /order/cartId
  */
 // export const updateOrder = async () => {
 //     try {
-//     
+//
 //         const { data, status, ...props } = await Api.post('/user', user, {
 //             headers: {
-//                // Authorization: token    
+//                // Authorization: token
 //             }
 //         });
 //         return { data, status };

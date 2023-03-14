@@ -12,7 +12,7 @@ type AuthProviderProps = {
 
 export const AuthContext = createContext({
   auth: {} as IAuth,
-  setAuth: (auth: IAuth) => {}
+  setAuth: (auth: IAuth) => { }
 });
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
