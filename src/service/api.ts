@@ -57,9 +57,9 @@ export const createUser = async (user: User) => {
 
 // ----- Deletar Usuario -----
 
-export const deleteUser = async (_id: User,  token: string) => {
+export const deleteUser = async (_id: User, token: string) => {
     try {
-        const response = await axios.delete(`'/user'${_id}` , {
+        const response = await axios.delete(`'/user'${_id}`, {
             headers: {
                 Authorization: token
 
