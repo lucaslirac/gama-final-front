@@ -8,14 +8,15 @@ export const Container = styled.div`
         width: 350px;
         margin-bottom: 40px;
         border: 1px solid #ccc;
+        padding-top: 20px;
         & img{
-            width: 90%;
+            width: 60%;
             margin: auto;
             border-radius: 8px;
         }
         & h5 {
             text-align: center;
-            color: #00796B;
+           
             font-weight: 600;
         }
     }
