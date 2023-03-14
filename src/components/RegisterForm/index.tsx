@@ -60,7 +60,7 @@ function RegisterForm() {
           />
           <MDBInput
             wrapperClass="mb-4"
-            label="Your Email"
+            label="Email"
             size="lg"
             id="email"
             type="email"

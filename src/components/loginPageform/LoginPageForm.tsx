@@ -63,7 +63,7 @@ function Login() {
           <h2 className="text-uppercase text-center mb-5">Login</h2>
           <MDBInput
             wrapperClass="mb-4"
-            label="Your Email"
+            label="Email"
             size="lg"
             id="email"
             type="email"
