@@ -37,9 +37,9 @@ export default function ListProduct(props: ProductProps) {
         <TableBody>
           <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             <TableCell component="th" scope="row">
-              {props.description}
+              {props.name}
             </TableCell>
-            <TableCell align="center">{props.name}</TableCell>
+            <TableCell align="center"></TableCell>
 
             <TableCell align="right">{props.price}  <Button variant="outline-dark" size='sm'>Excluir</Button></TableCell>
 
