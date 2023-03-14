@@ -3,6 +3,7 @@ import { Await } from "react-router-dom";
 import { User } from "../types/index"
 import { Product } from "../types/index"
 import { IAuth } from "../types/index";
+import { Userform } from "../components/EditUserForm/indext";
 import { setAuthLocalStorage, getAuthLocalStorage } from './localStorage';
 
 export const Api = axios.create({
@@ -56,10 +57,17 @@ export const createUser = async (user: User) => {
 
 // ----- Deletar Usuario -----
 
-export const deleteUser = async (_id: User) => {
+export const deleteUser = async (_id: User,  token: string) => {
     try {
-        const response = await axios.delete(`'/user'${_id}`);
+        const response = await axios.delete(`'/user'${_id}` , {
+            headers: {
+                Authorization: token
+
+
+            }
+        });;
         console.log(response.data);
+        alert("Usuario excluido com sucesso")
     } catch (error) {
         console.error(error);
     }
@@ -103,7 +111,7 @@ export const signIn = async ({ email, password }: SignInProps): Promise<Response
 
         if (user) {
             auth = {
-                id: user._id,
+                id: user._id as string,
                 email,
                 token: data.token,
                 isAdmin: user.role === 'admin',
@@ -145,6 +153,28 @@ export const getUserById = async (id: string) => {
 }
 
 
+export const ChangeUser = async (id: string, token: string, user: Userform) => {
+    try {
+        console.log(user, "oi")
+        const response = await Api.put(`/user/${id}`, user, {
+            headers: {
+                Authorization: token
+
+
+            }
+        });
+        alert('Perfil atualizado com sucesso!');
+        return response.data;
+    } catch (error: any) {
+        console.error(error);
+        return null;
+    }
+};
+
+
+
+
+
 export const getProductById = async (id: string) => {
     try {
         const response = await Api.get(`/product/${id}`)
@@ -182,27 +212,14 @@ export const createProduct = async (product: Product) => {
 
 
 // ----- Criar Order -----
-/**
- * params:
- *  token,
- *  [product_id]
- *
- * url: POST /order
- */
-// export const createOrder = async () => {
-//     try {
-//
-//         const { data, status, ...props } = await Api.post('/user', user, {
-//             headers: {
-//                // Authorization: token
-//             }
-//         });
-//         return { data, status };
-//     } catch (error: any) {
-//         console.error(error);
-//         return { status: error.response.status };
-//     }
-// };
+
+type params = {
+    token: string
+    product_id: string
+}
+
+
+
 
 // ----- Update Produto -----
 /**
@@ -210,7 +227,7 @@ export const createProduct = async (product: Product) => {
  *  token,
  *  cartId,
  *  [product_id]
- *
+ * 
  * url: PUT /order/cartId
  */
 // export const updateOrder = async () => {
@@ -227,3 +244,32 @@ export const createProduct = async (product: Product) => {
 //         return { status: error.response.status };
 //     }
 // };
+
+type update = {
+
+    token: string
+    cartId: string
+    id: string
+
+}
+
+
+export const updateOrder = async (update: update, id: string) => {
+    try {
+
+        const { data, status, ...props } = await Api.post(`/order/${id}`, {
+            headers: {
+                //Authorization: token
+            }
+        });
+        return { data, status };
+    } catch (error: any) {
+        console.error(error);
+        return { status: error.response.status };
+
+
+
+    }
+
+}
+
