@@ -15,6 +15,8 @@
 
 <h2 align="center">:rocket: Instalação</h2>
 
+BACK-AND: https://github.com/mvdn28/desafio-final-gama-46-back
+
 1 - Faça a instalação das dependências com o comando:
 <pre>npm install</pre>
 
