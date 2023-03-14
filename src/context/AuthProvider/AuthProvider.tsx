@@ -1,4 +1,5 @@
-import React, { createContext, useState, ReactNode, Dispatch } from "react";
+import React, { createContext, useState, ReactNode, Dispatch, useEffect } from "react";
+import { getAuthLocalStorage } from "../../service/localStorage";
 import { IAuth } from '../../types';
 
 type AuthContext = {
@@ -17,13 +18,13 @@ export const AuthContext = createContext({
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [auth, setAuth] = useState<IAuth>({} as IAuth);
-  /**
-   * useEffect(() => {
-   *  verificar no localStorage.auth !== auth
-   * 
-   * setAuth(auth);
-   * }, [])
-   */
+
+  useEffect(() => {
+    const authLocalStorege = getAuthLocalStorage();
+    if (authLocalStorege && auth !== authLocalStorege) setAuth(authLocalStorege)
+    setAuth(auth);
+  }, [])
+
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
