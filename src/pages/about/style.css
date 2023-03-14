@@ -1,0 +1,27 @@
+.group {
+    background-color: #eee;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .subgrou {
+    display: flex;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  
+  .subgrou h3 {
+   
+    margin: 10px;
+    padding: 5px;
+  }
+
+
+  .subtext{
+    text-align: center;
+  }
