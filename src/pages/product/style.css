@@ -1,0 +1,144 @@
+.details {
+    width: 70%;
+    margin: 48px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .details .details-image {
+    width: 400px;
+    height: 400px;
+    background: #C4C4C4;
+  }
+  
+  .details .description {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .description .actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .description .size {
+    color: #000;
+    opacity: .5;
+    font-size: 14px;
+  }
+  
+  .actions .product-amount {
+    width: 100px;
+    display: flex;
+    justify-content:center;
+    gap: 16px;
+    padding: 3px;
+    border: 1px solid #0D0D0D;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .actions .product-size {
+    width: 100px;
+    border: 1px solid #0D0D0D;
+    outline: none;
+  }
+  
+  .description .buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .description .buttons button {
+    padding: 8px 32px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .description .buttons button:hover {
+    opacity: .5;
+  }
+  
+  .buttons .cart-button {
+    background-color: #0D0D0D;
+  }
+  
+  .buttons .buy-button {
+    background-color: #2F80ED;
+  }
+  
+
+  @media only screen and (max-width: 768px) {
+    .details {
+      flex-direction: column;
+      align-items: center;
+      margin: 24px auto;
+      width: 90%;
+    }
+  
+    .details .details-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .details .description {
+      width: 100%;
+    }
+  
+    .description .size {
+      font-size: 12px;
+    }
+  
+    .actions .product-amount {
+      width: 80px;
+    }
+  
+    .description .buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .description .buttons button {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+  }
+  
+  /* Styles for screens with a minimum width of 769px */
+  @media only screen and (min-width: 769px) {
+    .details {
+      width: 70%;
+      margin: 48px auto;
+    }
+  
+    .details .details-image {
+      width: 400px;
+      height: 400px;
+    }
+  
+    .description {
+      width: 50%;
+    }
+  
+    .description .size {
+      font-size: 14px;
+    }
+  
+    .actions .product-amount {
+      width: 100px;
+    }
+  
+    .description .buttons {
+      flex-direction: row;
+    }
+  
+    .description .buttons button {
+      padding: 8px 32px;
+      font-size: 14px;
+    }
+  }
