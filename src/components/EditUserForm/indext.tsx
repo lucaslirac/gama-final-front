@@ -13,20 +13,30 @@ import {
   MDBCheckbox
 }
   from 'mdb-react-ui-kit';
-import { getUserById, signIn } from '../../service/api';
+import { ChangeUser, getUserById, signIn } from '../../service/api';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { User } from '../../types';
+import { IAuth, User } from '../../types';
 
 
 interface EditLoginProps {
   id: string
 }
 
+export type Userform = {
+
+  name: string;
+  email: string;
+  role: string;
+}
+
+
 function EditLogin() {
   const { id } = useParams();
 
-  const [user, setUser] = useState<User>({} as User);
-  console.log('id-----', id);
+  const { auth } = useContext(AuthContext);
+
+  const [user, setUser] = useState<Userform>({} as Userform);
+
 
   const fetchUser = async (id: string) => {
     const userData = await getUserById(id)
@@ -40,10 +50,18 @@ function EditLogin() {
 
 
 
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [password, setPassword] = useState(user.password);
-  const [role, setRole] = useState(user.role);
+
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+    setName(user.name);
+    setEmail(user.email);
+    setRole(user.role);
+  }, [user]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -61,10 +79,16 @@ function EditLogin() {
     setRole(event.target.value);
   };
 
-  const UpdateUser = async () => {
-    const response = await getUserById({ name, email, password, role });
-    //Api.defaults.headers["Authorization"] = `Bearer ${response.token}`;
-    console.log(name, email, password, role)
+  const navigate = useNavigate();
+
+
+  const UpdateUser = async (id: string, token: string, user: Userform) => {
+    const { error } = await ChangeUser(id, token, user);
+
+    if (!error) {
+
+      navigate('/UserList');
+    }
   };
 
 
@@ -99,15 +123,6 @@ function EditLogin() {
           />
           <MDBInput
             wrapperClass="mb-4"
-            label="Nova Senha"
-            size="lg"
-            id="password"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-          <MDBInput
-            wrapperClass="mb-4"
             label="Nova funcao"
             size="lg"
             id="Role"
@@ -120,7 +135,7 @@ function EditLogin() {
             className="mb-4 w-100 gradient-custom-4"
             size="lg"
             onClick={async () => {
-              await UpdateUser();
+              await UpdateUser(id as string, auth.token, { name, email, role });
 
 
 
@@ -136,3 +151,7 @@ function EditLogin() {
 }
 
 export default EditLogin;
+
+function setAuth(auth: any) {
+  throw new Error('Function not implemented.');
+}
