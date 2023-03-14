@@ -73,7 +73,21 @@ export const deleteUser = async (_id: User, token: string) => {
     }
 };
 
+export const deleteProduct = async (_id: string, token: string) => {
+    try {
+        const response = await axios.delete(`'/product'${_id}`, {
+            headers: {
+                Authorization: token
 
+
+            }
+        });;
+        console.log(response.data);
+        alert("Produto excluido com sucesso")
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 
 export const getToken = async () => {
