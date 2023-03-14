@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductItem from './ProductItem';
 import { getproductList } from '../../service/api';
 import ProductCard from '../Productcard';
+import './style.css'
 
 // interface Product {
 //   id: number;
@@ -29,7 +30,7 @@ const ProductList: React.FC = () => {
 
 
   return (
-    <div>
+    <div className='books'>
       {productList.map(product => (
         <>
           <ProductCard {...product} />
