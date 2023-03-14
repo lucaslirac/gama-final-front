@@ -1,5 +1,4 @@
 .header-container {
-    width: 100%;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -30,7 +29,6 @@
 }
 
 .header-content h3 {
-
     cursor: pointer;
 }
 
@@ -44,7 +42,6 @@
     display: flex;
     align-items: center;
     gap: 16px;
-
 }
 
 .header-container nav ul li {
@@ -62,7 +59,35 @@
     border-bottom: 2px solid #0D0D0D;
 }
 
-
 .cart {
     cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .header-container .header-content {
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .header-container nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-container nav ul li {
+        width: 100%;
+        justify-content: center;
+        border-bottom: none;
+    }
+
+    .header-container.bg-light nav ul li:hover {
+        border-bottom: none;
+    }
 }
