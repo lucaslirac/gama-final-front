@@ -42,7 +42,7 @@ export const Container = styled.div`
             padding: 3px;
             border: 1px solid #ccc;
             border-radius: 6px;
-        } 
+        }
         button{
             text-decoration: none;
             font-size: 13px;
