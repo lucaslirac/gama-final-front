@@ -30,43 +30,36 @@ export default function Carrinho() {
               <h6>Confira os itens selecionados em seu carrinho de compras:</h6>
 
               <>
-                {['sm', 'sm', 'sm'].map((breakpoint) => (
-                  <ListGroup key={breakpoint} horizontal={breakpoint} className="my-2 mt-3">
+               
+                  <ListGroup  horizontal className="my-2 mt-3">
 
                     <ListGroup.Item>
-                      <img src='' alt="foto capa livro" className='imageBook' />
+                      <img src='' alt="livro" className='imageBook' />
                     </ListGroup.Item>
 
 
                     <ListGroup.Item>
                       <div className="nomeLivro">
-
+                          <h5>The witcher</h5>
                       </div>
                     </ListGroup.Item>
 
                     <ListGroup.Item>
+                      <h6>R$:55,99</h6>
 
                     </ListGroup.Item>
 
 
-                    <ListGroup.Item><Button variant="light">Excluir</Button>{' '}</ListGroup.Item>
+                    <ListGroup.Item><Button variant="light">Excluir</Button></ListGroup.Item>
 
                   </ListGroup>
-                ))}
+             
               </>
             </Col>
 
 
             <Col sm={5} className="resumo-pedido">
-              <h5>Resumo do Pedido</h5>
-
-              <InputGroup className="mb-4" >
-                <Form.Control
-                  placeholder="Insira o código de desconto aqui"
-                  aria-label="Código de Desconto"
-                  aria-describedby="basic-addon2"
-                />
-              </InputGroup>
+              <h5>Pedido</h5>
 
 
               <Row>
@@ -74,7 +67,7 @@ export default function Carrinho() {
                   Subtotal
                 </Col>
                 <Col xs={6} md={4}>
-                  R$ xxx
+                R$:55,99
                 </Col>
               </Row>
 
@@ -91,7 +84,7 @@ export default function Carrinho() {
                     Total
                   </Col>
                   <Col xs={6} md={4}>
-                    R$ xxx
+                  R$:55,99
                   </Col>
                 </Row>
               </div>

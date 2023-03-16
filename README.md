@@ -24,6 +24,13 @@ BACK-AND: https://github.com/mvdn28/desafio-final-gama-46-back
 <pre>npm run dev</pre>
 <br>
 
+
+### 3. Admin Acess
+```sh
+email: adminuser@email.com
+password: password123
+```
+
 <h2 align="center">:page_facing_up: Documentação</h2>
 <div align="center"> 
   <a href="https://documenter.getpostman.com/view/26152834/2s93JnT5tM">Clique aqui para ver a documentação </a>
