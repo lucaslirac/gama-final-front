@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { getProductById } from "../../service/api";
@@ -8,6 +8,7 @@ import "./style.css";
 
 function ProductPage() {
 
+  const navigate = useNavigate();
 
 
   
@@ -60,7 +61,7 @@ function ProductPage() {
             
           </div>
           <div className="buttons">
-            <button className="cart-button">Adicionar ao carrinho</button>
+            <button className="cart-button" onClick={() => navigate("/Cart")}>Adicionar ao carrinho</button>
           </div>
         </div>
       </div>
