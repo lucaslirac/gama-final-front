@@ -3,6 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import { Button } from '../Button/Button';
 
 import * as C from "./MultiStepForm.styles";
+import { useNavigate } from 'react-router-dom';
 
 
 interface AddressFormValues {
@@ -50,6 +51,8 @@ const initialValues: FormData = {
 
 
 export const MultiStepForm = () => {
+
+    const navigate = useNavigate();
     const [step, setStep] = useState(1);
 
     const handleNextStep = () => {
@@ -255,6 +258,7 @@ export const MultiStepForm = () => {
                                             borderRadius=".25rem"
                                             backgroundColor="var(--second-color)"
                                             hoverBg="var(--second-color-alt)"
+                                            action={() => navigate("/")}
                                         />
                                     </>
                                 )}
